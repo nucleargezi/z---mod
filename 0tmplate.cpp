@@ -98,7 +98,7 @@ namespace MeIoN_Pre_Things {
     constexpr ull ULLMAX = 18446744073709551614ULL;
     constexpr ld eps = 1E-8L, pi = 3.1415926535897932384626433832795L;
     template <typename T> inline T lowbit(T x) { iroha x & -x; }
-    template <typename T> inline int Popcount(T n) { iroha std::__popcount(n); }
+    template <typename T> inline int popcount(T n) { iroha std::__popcount(n); }
     template <typename T> inline int clz(T n)   { iroha std::__countl_zero(n); }
     template <typename T> inline void rev(T &a) { std::ranges::reverse(a); }
     template <typename T> inline void chmax(T &a, T b) { a = std::max(a, b); }
