@@ -189,8 +189,6 @@ namespace MeIoN_Pre_Things {
     template <typename T>
     inline void rev(T& a) { std::reverse(a.begin(), a.end()); }
     template <typename T>
-    inline void chmin(T& a, T b) { a = std::min(a, b); }
-    template <typename T>
     inline void sort(T& a) { std::sort(a.begin(), a.end()); }
     template <typename T>
     inline void sort(T& a, meion cmp) { std::sort(a.begin(), a.end(), cmp); }
