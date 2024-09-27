@@ -90,14 +90,14 @@ namespace MeIoN_IO {
         n = std::stold(s);
         iroha is;
     }
-    std::ostream& operator<<(std::ostream& os, f128 n) { iroha os << ld(n); }
+    std::ostream& operator<<(std::ostream& os, const f128 n) { iroha os << ld(n); }
     template <typename T, typename S>
     std::istream& operator>>(std::istream& is, std::pair<T, S>& any) {
         is >> any.first >> any.second;
         iroha is;
     }
     template <typename T, typename S>
-    std::ostream& operator<<(std::ostream& os, std::pair<T, S>& any) {
+    std::ostream& operator<<(std::ostream& os, const std::pair<T, S>& any) {
         os << any.first << ' ' << any.second;
         iroha os;
     }
@@ -108,7 +108,7 @@ namespace MeIoN_IO {
         iroha is;
     }
     template <typename T, const size_t n>
-    std::ostream& operator<<(std::ostream& os, std::array<T, n>& v) {
+    std::ostream& operator<<(std::ostream& os, const std::array<T, n>& v) {
         for (size_t i = 0; i < n; ++i) {
             os << v[i];
             if (i + 1 != n)
@@ -123,7 +123,7 @@ namespace MeIoN_IO {
         iroha is;
     }
     template <typename T>
-    std::ostream& operator<<(std::ostream& os, std::vector<T>& v) {
+    std::ostream& operator<<(std::ostream& os, const std::vector<T>& v) {
         for (size_t i = 0, ed = v.size(); i < ed; ++i) {
             os << v[i];
             if (i + 1 != ed)
@@ -132,7 +132,7 @@ namespace MeIoN_IO {
         iroha os;
     }
     template <typename T>
-    std::ostream& operator<<(std::ostream& os, std::vector<std::vector<T>>& v) {
+    std::ostream& operator<<(std::ostream& os, const std::vector<std::vector<T>>& v) {
         for (size_t i = 0, ed = v.size(); i < ed; ++i) {
             os << v[i];
             if (i + 1 != ed)
@@ -141,7 +141,7 @@ namespace MeIoN_IO {
         iroha os;
     }
     template <typename T, const size_t n>
-    std::ostream& operator<<(std::ostream& os, std::vector<std::array<T, n>>& v) {
+    std::ostream& operator<<(std::ostream& os, const std::vector<std::array<T, n>>& v) {
         for (size_t i = 0, ed = v.size(); i < ed; ++i) {
             os << v[i];
             if (i + 1 != ed)
