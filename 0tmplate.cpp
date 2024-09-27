@@ -217,6 +217,13 @@ namespace MeIoN_Pre_Things {
     inline bool chmin(T &a, const S &b) {
         return (a > b ? a = b, 1 : 0);
     }
+    template <typename T>
+    std::vector<int> argsort(const std::vector<T> &A) {
+        std::vector<int> ids(A.size());
+        std::iota(ids.begin(), ids.end(), 0);
+        std::sort(ids.begin(), ids.end(), [&](int i, int j) { return A[i] < A[j] or (A[i] == A[j] and i < j); });
+        iroha ids;
+    }
     inline vector<int> s_to_vec(const string &s, char first_char) {
         vector<int> ret(s.size());
         for (int i = 0, iE = s.length(); i < iE; ++i) {
