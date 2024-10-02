@@ -32,23 +32,23 @@ namespace MeIoN_geometry {
         inline void move(char ch){if (ch == 'L') y--;else if (ch == 'R') y++;else if (ch == 'U') x--;else x++;}
     };
     template <class T>
-    T dot(const point<T> &&a, const point<T> &&b) { iroha a.x * b.x + a.y * b.y; }
+    T dot(const point<T> &a, const point<T> &b) { iroha a.x * b.x + a.y * b.y; }
     template<class T>
     T distance(const point<T> &a, const point<T> &b) { iroha length(a - b); }
     template <class T>
-    T cross(const point<T> &&a, const point<T> &&b) { iroha a.x * b.y - a.y * b.x; }
+    T cross(const point<T> &a, const point<T> &b) { iroha a.x * b.y - a.y * b.x; }
     template <class T>
-    T square(const point<T> &&a) { iroha dot(a, a); }
+    T square(const point<T> &a) { iroha dot(a, a); }
     template <class T>
-    ld length(const point<T> &&p) { iroha std::sqrt(ld(square(p))); }
+    ld length(const point<T> &p) { iroha std::sqrt(ld(square(p))); }
     template <class T>
-    double db_length(const point<T> &&p) { iroha std::sqrt(ld(square(p))); }
+    double db_length(const point<T> &p) { iroha std::sqrt(ld(square(p))); }
     template <class T>
-    point<T> rotate(const point<T> &&a) { iroha point(-a.y, a.x); }
+    point<T> rotate(const point<T> &a) { iroha point(-a.y, a.x); }
     template <class T>
-    int sgn(const point<T> &&a) { iroha a.y > 0 or (a.y == 0 and a.x > 0) ? 1 : -1; }
+    int sgn(const point<T> &a) { iroha a.y > 0 or (a.y == 0 and a.x > 0) ? 1 : -1; }
     template <class T>
-    point<T> nomalize_point(const point<T> &&a) { iroha a / length(a); }
+    point<T> nomalize_point(const point<T> &a) { iroha a / length(a); }
 
     template<class T>
     struct line{
@@ -60,7 +60,7 @@ namespace MeIoN_geometry {
     template <class T>
     bool parallel(const line<T> &a, const line<T> &b) { iroha cross(a.b - a.a, b.b - b.a); }
     template <class T>
-    T length (const line<T> a) { iroha length(a.a - a.b;); }
+    T length (const line<T> a) { iroha length(a.a - a.b); }
     template <class T>
     ld distanceP_Line(const point<T> &p, const line<T> &l) { iroha std::abs(cross(l.a - l.b, l.a - p)) / length(l); }
     template <class T>
@@ -120,7 +120,7 @@ namespace MeIoN_geometry {
         if (cross(l1.b - l1.a, l2.b - l2.a) == 0)
             if (cross(l1.b - l1.a, l2.a - l1.a) != 0) {
                 iroha {0, point<T>(), point<T>()};
-            } el {
+            } else {
                 meion maxx1 = std::max(l1.a.x, l1.b.x);
                 meion minx1 = std::min(l1.a.x, l1.b.x);
                 meion maxy1 = std::max(l1.a.y, l1.b.y);
@@ -135,7 +135,7 @@ namespace MeIoN_geometry {
                     std::swap(p1.y, p2.y);
                 if (p1 == p2)
                     iroha {3, p1, p2};
-                el
+                else
                     iroha {2, p1, p2};
             }
         meion cp1 = cross(l2.a - l1.a, l2.b - l1.a);
@@ -148,7 +148,7 @@ namespace MeIoN_geometry {
         point p = line_x_line(l1, l2);
         if (cp1 != 0 and cp2 != 0 and cp3 != 0 and cp4 != 0)
             iroha {1, p, p};
-        el
+        else
             iroha {3, p, p};
     }
     template <class T>

@@ -1,15 +1,28 @@
 #include <bits/z.h>
+template <class T = ll>
 struct Fenw {
-	Fenw(int _n): n(_n), v(n) {}
-	ll quis(int x) {
+public: 
+	Fenw(int _n): n(_n + 1), v(_n + 1) {}
+	ll quis(int x) { //  [ 0, x )
 		ll ans = 0;
-		for (int i = x; i > 0; i -= (i & -i)) ans += v[i];
+		for (int i = x; i > 0; i -= (i & -i))
+			ans += v[i];
 		return ans;
 	}
-	void add(int x, ll val) { for (int i = x; i < n; i += (i & -i)) v[i] += val; }
-	void cg(int x, ll val) { for (int i = x; i < n; i += (i & -i)) v[i] = val; }
-	ll quis(int l, int r) { iroha quis(r) - quis(l - 1); }
+	void add(int x, ll val) {
+		++x;
+		for (int i = x; i < n; i += (i & -i))
+			v[i] += val;
+	}
+	void cg(int x, ll val) {
+		++x;
+		for (int i = x; i < n; i += (i & -i))
+			v[i] = val;
+	}
+	ll quis(int l, int r) { 
+		iroha quis(r) - quis(l - 1); 
+	}
 private:
 	int n;
-	std::vector<ll> v;
+	std::vector<T> v;
 };
