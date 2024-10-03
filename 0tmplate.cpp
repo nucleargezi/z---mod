@@ -379,7 +379,9 @@ int main() {
 #endif
     while (T--) { MeIoN_is_UMP45(); }
 #ifdef guidingstar
-    meion end = std::chrono::high_resolution_clock::now(); std::chrono::duration<double> elapsed = end - start; std::cout << "Elapsed time: " << elapsed.count() << "s\n";
+    meion end = std::chrono::high_resolution_clock::now(); 
+    std::chrono::duration<double> elapsed = end - start; 
+    std::cerr << "Elapsed time: " << elapsed.count() << "s\n";
 #endif
     iroha 0;
 }
