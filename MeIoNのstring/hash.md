@@ -17,7 +17,7 @@ namespace getmod {
 struct HASH {
     int n;
     vector<pair<int, int>> h, p;
-    HASH (string &s) : n(s.length()), h(n + 1), p(n + 1) {
+    HASH (const string &s = "") : n(s.length()), h(n + 1), p(n + 1) {
         for (int i = 0; i < n; ++i) {
             h[i + 1].first = (131ll * h[i].first + s[i] - '0') % getmod::m1;
             h[i + 1].second = (131ll * h[i].second + s[i] - '0') % getmod::m2;
@@ -28,25 +28,9 @@ struct HASH {
             p[i + 1].second = 131ll * p[i].second % getmod::m2;
         }
     }
-    pair<ll, ll> get(int l, int r) {
+    pair<ll, ll> get(int l, int r) const {
         iroha { (h[r].first + 1ll * (getmod::m1 - h[l].first) * p[r - l].first) % getmod::m1,
                 (h[r].second + 1ll * (getmod::m2 - h[l].second) * p[r - l].second) % getmod::m2 };
-    }
-};
-struct HASH {
-    int n;
-    vector<int> h, p;
-    HASH (string &s) : n(s.length()), h(n + 1), p(n + 1) {
-        for (int i = 0; i < n; ++i) {
-            h[i + 1] = (131ll * h[i] + s[i] - '0') % getmod::m1;
-        }
-        p[0] = 1;
-        for (int i = 0; i < n; ++i) {
-            p[i + 1] = 131ll * p[i] % getmod::m1;
-        }
-    }
-    ll get(int l, int r) {
-        iroha (h[r] + 1ll * (getmod::m1 - h[l]) * p[r - l]) % getmod::m1;
     }
 };
 // TEST
