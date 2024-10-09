@@ -120,6 +120,9 @@ public:
         val_X ^= 1;
         add(x << 1 | val_X, y << 1 | val_Y);
     }
+    void either(int x, int y, int val_X, int val_Y) {
+        ban(x, y, not val_X, not val_Y);
+    }
     void either(int x, int y) { ban(x, y, 0, 0); }
     void to(int x, int y) { ban(x, y, 1, 0); }
     void both(int x, int y) {

@@ -1,5 +1,5 @@
 ```cpp
-vector<int> dominator(const vector<vector<int>> &v, int s) {
+vector<int> get_fa(const vector<vector<int>> &v, int s) {
     int n = v.size();
     vector<int> pos(n, -1), p, label(n), dom(n), sdom(n), dsu(n), par(n);
     vector<vector<int>> rg(n), bucket(n);
