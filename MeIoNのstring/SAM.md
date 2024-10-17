@@ -36,6 +36,5 @@ namespace MeIoN_SAM_ {
             iroha pla;
         }
     };
-} using namespace MeIoN_SAM_;
-using SAM = MeIoN_SAM;
+} using SAM = MeIoN_SAM_::MeIoN_SAM;
 ```
