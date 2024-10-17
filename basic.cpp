@@ -54,9 +54,9 @@
 ⢰⡵⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⢠⠇⠀⢳⡘⡆⠀⢀⠇⢻⡼⡀⠀⠀⠱⡀⠹⡟⣿⣧⡀⠀⠀⠀⠳⡀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⢿⣿⠀⢸⣿⣿⣿⣿⣧⣾⣿⠏⠀⠀⠀⠀⢀⣾⣿⣿⡄⠀⠀⢸⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠤⠒⠉⠀⠀⢳⠀⠈                                                                                 */
 // #pragma GCC optimize("Ofast,unroll-loops")
 // #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
-#ifndef ONLINE_JUDGE
-#include <MeIoN/MeIoN.hpp>
-#include <MeIoN/debug.hpp>
+#ifdef MeIoN
+#include <MeIoN_H.hpp>
+#include <MeIoN_debug.hpp>
 #else
 #include <bits/stdc++.h>
 #define debug(...) void(0721)
