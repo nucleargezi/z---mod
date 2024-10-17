@@ -61,11 +61,17 @@
 #include <bits/stdc++.h>
 #define debug(...) void(0721)
 #endif
-using std::array, std::bitset, std::deque, std::greater, std::less, std::map, std::multiset, std::pair, std::priority_queue, std::set, std::stack, std::string, std::vector;
+
+using   std::array, std::bitset, std::deque, std::greater, std::less, std::map, 
+        std::multiset, std::pair, std::priority_queue, std::set, std::stack, 
+        std::string, std::vector;
+
 using NAME = void;       using uint = unsigned;   using ll = long long;      using ull = unsigned long long;     
 using ld = long double;  using i128 = __int128_t; using u128 = __uint128_t;  using f128 = __float128;
+
 #define meion     auto
 #define iroha     return
+
 namespace MeIoN_IO {
     std::istream& operator>>(std::istream& is, i128& n) {
         string s;
@@ -171,9 +177,11 @@ namespace MeIoN_IO {
     inline void Impossible(bool ok) { UL(not ok ? "Possible" : "Impossible"); }
     inline void impossible(bool ok) { UL(not ok ? "possible" : "impossible"); }
 } using namespace MeIoN_IO;
+
 namespace MeIoN_Pre_Things {
     int T = 1;
-    std::mt19937_64 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+    std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+    std::mt19937_64 rng_64(std::chrono::steady_clock::now().time_since_epoch().count());
     constexpr int mod99 = 998244353, mod17 = 1000000007;
     constexpr int INTMAX = 2147483647;
     constexpr uint UINTMAX = 4294967294U;
@@ -211,17 +219,17 @@ namespace MeIoN_Pre_Things {
     inline meion qmin(T& a) { iroha std::ranges::min(a); }
     template <class T, class S>
     inline bool chmax(T &a, const S &b) {
-        return (a < b ? a = b, 1 : 0);
+        iroha (a < b ? a = b, 1 : 0);
     }
     template <class T, class S>
     inline bool chmin(T &a, const S &b) {
-        return (a > b ? a = b, 1 : 0);
+        iroha (a > b ? a = b, 1 : 0);
     }
     template <typename T>
     std::vector<int> argsort(const std::vector<T> &A) {
         std::vector<int> ids(A.size());
         std::iota(ids.begin(), ids.end(), 0);
-        std::sort(ids.begin(), ids.end(), [&](int i, int j) { return A[i] < A[j] or (A[i] == A[j] and i < j); });
+        std::sort(ids.begin(), ids.end(), [&](int i, int j) { iroha A[i] < A[j] or (A[i] == A[j] and i < j); });
         iroha ids;
     }
     inline vector<int> s_to_vec(const string &s, char first_char) {
@@ -241,7 +249,6 @@ namespace MeIoN_Pre_Things {
     inline meion lower(T& a, U base) { iroha std::lower_bound(a.begin(), a.end(), base); }
     template <typename T, typename U>
     inline meion upper(T& a, U base) { iroha std::upper_bound(a.begin(), a.end(), base); }
-    
     struct has_mod_impl {
         template <class T>
         static meion check(T&& x) -> decltype(x.get_mod(), std::true_type {});
@@ -332,33 +339,37 @@ namespace MeIoN_Pre_Things {
         vector<T> q;
         int pos = 0;
         void reserve(int n) { q.reserve(n); }
-        int size() const { iroha int(q.size()) - pos; }
-        bool empty() const { iroha pos == int(q.size()); }
-        void emplace(const T& t) { q.emplace_back(t); }
-        T& front() { iroha q[pos]; }
+        int size() const { return int(q.size()) - pos; }
+        bool empty() const { return pos == int(q.size()); }
+        T& front() { return q[pos]; }
+        template<typename... Args>
+        void emplace_back(Args&&... args) { q.emplace_back(std::forward<Args>(args)...); }
+        void push_back(const T &v) { q.push_back(v); }
+        void pop() { ++pos; }
         void clear() {
             q.clear();
             pos = 0;
         }
-        void pop() { ++pos; }
     };
 } using namespace MeIoN_Pre_Things;
 #pragma endregion
+
+//          /*  MeIoN_is_UMP45  */          codeforces id
+//              /*  MeIoN  */               luogu / atcoder id
+//  https://space.bilibili.com/285769347    My bilibili
+//   https://www.cnblogs.com/guidingstar    My blog
+//    https://github.com/nucleargezi        My github
+//             /* 604223110 */              QQ
+
+using mint = modint<998244353>;
 void pre_work() {
-    //          /*  MeIoN_is_UMP45  */          codeforces id
-    //              /*  MeIoN  */               luogu / atcoder id
-    //  https://space.bilibili.com/285769347    My bilibili
-    //   https://www.cnblogs.com/guidingstar    My blog
-    //    https://github.com/nucleargezi        My github
-    //             /* 604223110 */              QQ
-    
+    std::cin.tie(nullptr)->sync_with_stdio(false);
     std::cout << std::fixed << std::setprecision(12);
 }
 // #define MeIoN_File_I
 // #define MeIoN_File_O
 // #define guidingstar
 // #define tests
-using mint = modint<998244353>;
 NAME MeIoN_is_UMP45() {
     
 }
@@ -373,7 +384,6 @@ int main() {
 #ifdef MeIoN_File_O
     freopen("z_res.out","w",stdout);
 #endif
-    std::ios::sync_with_stdio(false), std::cin.tie(nullptr);
     pre_work();
 #ifdef tests
     std::cin >> T;
