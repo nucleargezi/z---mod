@@ -1,19 +1,18 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "E:/codefield/CODE_C++/1_tmp/z---mod/"
+                "/home/guiding_star/MeIoN_FILE/MeIoN_alg_space/MeIoN_Lib"
             ],
             "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
+                "MeIoN"
             ],
-            "cStandard": "c17",
-            "cppStandard": "c++23",
-            "intelliSenseMode": "windows-gcc-x64"
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c11",
+            "cppStandard": "c++20", 
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4
