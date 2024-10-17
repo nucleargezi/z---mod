@@ -1,5 +1,4 @@
-#include<bits/z.h>
-namespace range = std::ranges;
+```cpp
 ll n, K, ans, anss, m;
 ve<A<int, 3>> q;
 int main(){
@@ -34,3 +33,4 @@ int main(){
     }
     
 }
+```
